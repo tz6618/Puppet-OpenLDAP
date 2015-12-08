@@ -110,19 +110,19 @@ class ldap::config {
 class ldap::authconfig {
   exec { 'authconfig':
     command => "/usr/sbin/authconfig --enableldap \
-						--enableldapauth \
-            --enableldaptls \
-						--ldapserver='ldap://ldap-m.idc.safecenter.cn' \
-						--ldapbasedn='dc=xdja,dc=cn' \
-						--enableshadow \
-						--enablelocauthorize \
-						--enablemd5 \
-						--disablecache \
-            --disablecachecreds \
-            --disablesssd \
-            --disablesssdauth \
-            --enablemkhomedir \
-						--update  "
+	--enableldapauth \
+        --enableldaptls \
+	--ldapserver='ldap://ldap-m.idc.server.cn' \
+	--ldapbasedn='dc=xdja,dc=cn' \
+	--enableshadow \
+	--enablelocauthorize \
+	--enablemd5 \
+	--disablecache \
+        --disablecachecreds \
+        --disablesssd \
+        --disablesssdauth \
+        --enablemkhomedir \
+	--update  "
   }
 }
 
