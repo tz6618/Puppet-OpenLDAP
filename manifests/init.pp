@@ -1,5 +1,5 @@
 class ldap {
-  include ldap::install, ldap::config, ldap::authconfig, ldap::service, ldap::reload
+  include ldap::install, ldap::config, ldap::authconfig, ldap::service
 }
 
 class ldap::install {
@@ -113,7 +113,7 @@ class ldap::authconfig {
 	--enableldapauth \
         --enableldaptls \
 	--ldapserver='ldap://ldap-m.idc.server.cn' \
-	--ldapbasedn='dc=xdja,dc=cn' \
+	--ldapbasedn='dc=server,dc=cn' \
 	--enableshadow \
 	--enablelocauthorize \
 	--enablemd5 \
@@ -136,10 +136,3 @@ class ldap::service {
   }
 }
 
-class ldap::reload {
-  exec { "reload ldap":
-    command     => "/usr/bin/systemctl restart  nslcd",
-    refreshonly => true,
-    subscribe   => Class["ldap::authconfig"],
-  }
-}
